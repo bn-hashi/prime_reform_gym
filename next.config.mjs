@@ -7,8 +7,11 @@ const nextConfig = {
   images: {
     unoptimized: true,       // 最適化オフ
   },
-  // GitHub Pages 用のパスプレフィクス
-  assetPrefix: isProd ? './' : '',
+  // GitHub Pages で /prime_reform_gym/ 以下にホスティング
+  basePath: isProd ? '/prime_reform_gym' : '',
+  assetPrefix: isProd
+    ? 'https://bn-hashi.github.io/prime_reform_gym/'  // CSS/JS をこの接頭辞で出力
+    : '',
 };
 
 export default nextConfig;
