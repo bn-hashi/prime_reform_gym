@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "clean": "rimraf out",
+    "build": "npm run clean && next build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d out"
   },
