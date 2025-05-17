@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "clean": "rimraf out",
-    "build": "npm run clean && next build",
+    "build": "next build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d out"
   },
@@ -55,7 +54,6 @@
     "react-hook-form": "^7.54.1",
     "react-resizable-panels": "^2.1.7",
     "recharts": "2.15.0",
-    "rimraf": "^5",
     "sonner": "^1.7.1",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
@@ -68,6 +66,7 @@
     "@types/react-dom": "^19",
     "gh-pages": "^6.3.0",
     "postcss": "^8",
+    "rimraf": "^5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
   }
