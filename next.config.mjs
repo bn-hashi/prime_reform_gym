@@ -2,12 +2,6 @@
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   output: 'export',                // 静的エクスポートを有効化
   trailingSlash: true,             // 末尾に / を付与（GitHub Pages 404 防止）
   images: {
