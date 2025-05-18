@@ -1,17 +1,17 @@
-/** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production';
+const basePath = isProd ? '/prime_reform_gym' : '';
 
-const nextConfig = {
-  output: 'export',                // 静的エクスポートを有効化
-  trailingSlash: true,             // 末尾に / を付与（GitHub Pages 404 防止）
+/** @type {import('next').NextConfig} */
+
+export default {
+  output: 'export',
+  basePath,
+  assetPrefix: basePath,
+  trailingSlash: true,
   images: {
-    unoptimized: true,       // 最適化オフ
+    unoptimized: true,
   },
-  // GitHub Pages で /prime_reform_gym/ 以下にホスティング
-  basePath: isProd ? '/prime_reform_gym' : '',
-  assetPrefix: isProd
-    ? '/prime_reform_gym/'  // CSS/JS をこの接頭辞で出力
-    : '',
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
 };
-
-export default nextConfig;
