@@ -1,5 +1,9 @@
+const isNetlify = Boolean(process.env.NETLIFY) 
 const isProd = process.env.NODE_ENV === 'production';
-const basePath = isProd ? '/prime_reform_gym' : '';
+
+const basePath = !isNetlify && isProd
+  ? '/prime_reform_gym'
+  : ''
 
 /** @type {import('next').NextConfig} */
 
