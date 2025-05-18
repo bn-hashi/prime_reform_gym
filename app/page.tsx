@@ -2,6 +2,10 @@ import Image from "next/image"
 import Link from "next/link"
 import { Dumbbell, Phone, Mail, MapPin, Check } from "lucide-react"
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
+
+console.log(basePath); // ベースパスを確認
+
 export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -77,7 +81,7 @@ export default function LandingPage() {
 
             <div className="md:w-1/2 mt-8 md:mt-0 relative">
               <Image
-                src="/muscular-male-fitness-model.png"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/muscular-male-fitness-model.png`}
                 alt="筋肉質な男性モデル"
                 width={600}
                 height={800}
@@ -102,7 +106,7 @@ export default function LandingPage() {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-2/5">
               <Image
-                src="/placeholder-5x6vi.png"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/placeholder-5x6vi.png`}
                 alt="悩む女性"
                 width={500}
                 height={600}
@@ -172,7 +176,7 @@ export default function LandingPage() {
               <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg">
                 <div className="h-48 overflow-hidden">
                   <Image
-                    src={item.image || "/placeholder.svg"}
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}${item.image || '/placeholder.svg'}`}
                     alt={item.title}
                     width={400}
                     height={300}
@@ -210,17 +214,18 @@ export default function LandingPage() {
                       <div>
                         <p className="text-sm text-gray-500">Before</p>
                         <Image
-                          src={`/fitness-before-photo.png?height=300&width=200&query=fitness+before+photo+person+${item}`}
+                          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/fitness-before-photo.png?height=300&width=200&query=fitness+before+photo+person+${item}`}
                           alt="ビフォー写真"
                           width={200}
                           height={300}
                           className="rounded-md"
                         />
+
                       </div>
                       <div>
                         <p className="text-sm text-gray-500">After</p>
                         <Image
-                          src={`/fitness-after-photo.png?height=300&width=200&query=fitness+after+photo+fit+person+${item}`}
+                          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/fitness-after-photo.png?height=300&width=200&query=fitness+after+photo+fit+person+${item}`}
                           alt="アフター写真"
                           width={200}
                           height={300}
@@ -325,7 +330,7 @@ export default function LandingPage() {
             <div className="md:w-1/2">
               <div className="relative">
                 <Image
-                  src="/fit-woman-confident.png"
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/fit-woman-confident.png`}
                   alt="自信に満ちた女性"
                   width={500}
                   height={600}
@@ -467,7 +472,7 @@ export default function LandingPage() {
               <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg flex flex-col md:flex-row">
                 <div className="md:w-2/5">
                   <Image
-                    src={trainer.image || "/placeholder.svg"}
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}${trainer.image || '/placeholder.svg'}`}
                     alt={trainer.name}
                     width={300}
                     height={400}
@@ -577,18 +582,23 @@ export default function LandingPage() {
                   "/placeholder.svg?height=200&width=300&query=gym+shower+room+luxury",
                   "/placeholder.svg?height=200&width=300&query=gym+lounge+area+modern",
                   "/placeholder.svg?height=200&width=300&query=gym+training+equipment+modern",
-                ].map((image, index) => (
-                  <div key={index} className="w-full md:w-1/4 rounded-md overflow-hidden">
-                    <Image
-                      src={image || "/placeholder.svg"}
-                      alt={`ジム施設 ${index + 1}`}
-                      width={300}
-                      height={200}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
+                ].map((image, index) => {
+                  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+                  const src = `${basePath}${image}`;
+                  return (
+                    <div key={index} className="w-full md:w-1/4 rounded-md overflow-hidden">
+                      <Image
+                        src={src}
+                        alt={`ジム施設 ${index + 1}`}
+                        width={300}
+                        height={200}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  );
+                })}
               </div>
+
 
               {/* 設備情報 */}
               <div className="mb-12">
