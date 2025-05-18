@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "cross-env NODE_ENV=production next build",
-    "predeploy": "npm run build && echo > out/.nojekyll",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d out"
   },
   "homepage": "https://bn-hashi.github.io/prime_reform_gym",
@@ -68,6 +68,7 @@
     "postcss": "^8",
     "rimraf": "^5",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5"
+    "typescript": "^5",
+    "cross-env": "^7.0.3"
   }
 }
