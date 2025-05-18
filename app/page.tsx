@@ -40,7 +40,7 @@ export default function LandingPage() {
 
       {/* ヒーローセクション */}
       <section className="relative w-full bg-black text-white min-h-[80vh] flex items-center">
-        <div className="absolute inset-0 bg-[url('/placeholder-exhxi.png')] bg-cover bg-center opacity-40"></div>
+        <div className="absolute inset-0 bg-[url('/images/placeholder-exhxi.png')] bg-cover bg-center opacity-40"></div>
         <div className="container mx-auto relative z-10 px-4 py-16 md:py-24">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 space-y-6">
